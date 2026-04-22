@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     environment:
       - PYTHONUNBUFFERED=1
-      - TZ=UTC
+      - TZ=America/New_York
     env_file:
       - .env
     volumes:
@@ -23,8 +23,7 @@ services:
     image: redis:7-alpine
     container_name: trendradar-redis
     restart: unless-stopped
-    ports:
-      - "6379:6379"
+    # not exposing redis port externally, only accessible within docker network
     volumes:
       - redis-data:/data
     networks:
