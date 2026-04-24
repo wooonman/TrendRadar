@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     environment:
       - PYTHONUNBUFFERED=1
-      - TZ=America/New_York
+      - TZ=America/Chicago
     env_file:
       - .env
     volumes:
@@ -17,6 +17,9 @@ services:
       - ./logs:/app/logs
     networks:
       - trendradar-net
+    depends_on:
+      redis:
+        condition: service_healthy
 
   # Optional: Redis for caching trend data
   redis:
