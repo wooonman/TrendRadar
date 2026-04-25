@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     environment:
       - PYTHONUNBUFFERED=1
-      - TZ=America/Chicago
+      - TZ=America/New_York
     env_file:
       - .env
     volumes:
